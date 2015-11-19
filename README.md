@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/bartvanherck/python-graphwalker.svg?branch=master)](https://travis-ci.org/bartvanherck/python-graphwalker)
+
 # Python Graphwalker
 
 ## Intro
