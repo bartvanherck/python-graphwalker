@@ -71,7 +71,7 @@ class CommandLineParser(object):
         self.parser.add_argument("--suite-name", dest='suite', default="graphwalker")
         self.parser.add_argument("--stopcond", dest='stop', default="Coverage")
 
-        self.args = self.parser.parse_args(args)
+        self.args = self.parser.parse_args(args[1:])
 
     @property
     def reporter(self):
