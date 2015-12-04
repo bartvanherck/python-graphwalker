@@ -3,8 +3,7 @@
 # Copyright (c) 2013 Spotify AB
 import time
 import sys
-
-import docopt
+import argparse
 
 from graphwalker import planning
 from graphwalker import stopcond
@@ -65,7 +64,28 @@ Example:
       model.dot fleb.Fleb
 """
 
+class CommandLineParser(object):
+    def __init__(self, args):
+        self.parser = argparse.ArgumentParser()
+        self.parser.add_argument("--reporter", action="append", default=[])
+        self.parser.add_argument("--suite-name", dest='suite', default="graphwalker")
+        self.parser.add_argument("--stopcond", dest='stop', default="Coverage")
 
+        self.args = self.parser.parse_args(args)
+
+    @property
+    def reporter(self):
+        return self.args.reporter
+
+    @property
+    def suite(self):
+        return self.args.suite
+
+    @property
+    def stop(self):
+        return self.args.stop
+
+"""
 def run(args):
     sys.path.append('')
     modact = args['<model/actor>']
